@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:code_test/bloc/cart/cart_bloc.dart';
 import 'package:code_test/models/cart_model.dart';
+import 'package:code_test/pages/appbar_custom.dart';
 import 'package:code_test/utilities/constant.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -68,27 +69,38 @@ class _Screen2State extends State<Screen2> {
             width: 400,
             clipBehavior: Clip.hardEdge,
             decoration: BoxDecoration(
-                color: Colors.grey,
-                borderRadius: BorderRadius.circular(30),
-                border: Border.all(color: Colors.white)),
-            child: Scaffold(
-                appBar: AppBar(
-                  leading: Image.asset(AppAssets.nike),
-                  title: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      const Text(
-                        'Your Cart',
-                        style: TextStyle(fontFamily: fontBoldApp, fontSize: 18),
-                      ),
-                      Text(
-                        ' \$${state.totalPrice.toStringAsFixed(2)}',
-                        style: const TextStyle(
-                            fontFamily: fontBoldApp, fontSize: 18),
-                      ),
-                    ],
-                  ),
+              color: Colors.grey,
+              borderRadius: BorderRadius.circular(30),
+              border: Border.all(color: Colors.white),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.5),
+                  spreadRadius: 5,
+                  blurRadius: 7,
+                  offset: Offset(0, 3), // changes position of shadow
                 ),
+              ],
+            ),
+            child: Scaffold(
+                // appBar: AppBar(
+                //   leading: Image.asset(AppAssets.nike),
+                //   title: Row(
+                //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                //     children: [
+                //       const Text(
+                //         'Your Cart',
+                //         style: TextStyle(fontFamily: fontBoldApp, fontSize: 18),
+                //       ),
+                //       Text(
+                //         ' \$${state.totalPrice.toStringAsFixed(2)}',
+                //         style: const TextStyle(
+                //             fontFamily: fontBoldApp, fontSize: 18),
+                //       ),
+                //     ],
+                //   ),
+                // ),
+                appBar: customAppBar(
+                    'Your Cart', ' \$${state.totalPrice.toStringAsFixed(2)}'),
                 body: state.carts.isNotEmpty
                     ? ListView.builder(
                         itemCount: state.carts.length,
@@ -116,6 +128,14 @@ class _Screen2State extends State<Screen2> {
             decoration: BoxDecoration(
                 color: Colors.grey,
                 borderRadius: BorderRadius.circular(30),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.5),
+                    spreadRadius: 5,
+                    blurRadius: 7,
+                    offset: Offset(0, 3), // changes position of shadow
+                  ),
+                ],
                 border: Border.all(color: Colors.white)),
             child: Scaffold(
                 appBar: AppBar(

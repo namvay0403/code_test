@@ -6,7 +6,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../bloc/get_data_bloc/get_data_bloc.dart';
 
-
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -21,17 +20,18 @@ class _HomePageState extends State<HomePage> {
       create: (context) => GetDataBloc(),
       child: BlocProvider(
         create: (context) => CartBloc(),
-        child: const SingleChildScrollView(
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 15, vertical: 20),
-            child: Wrap(
-              alignment: WrapAlignment.center,
-              spacing: 40,
-              runSpacing: 30,
-              children: [
-                Screen1(),
-                Screen2(),
-              ],
+        child: const Center(
+          child: SingleChildScrollView(
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 15, vertical: 20),
+              child: Wrap(
+                spacing: 40,
+                runSpacing: 30,
+                children: [
+                  Screen1(),
+                  Screen2(),
+                ],
+              ),
             ),
           ),
         ),

@@ -1,4 +1,5 @@
 import 'package:code_test/bloc/get_data_bloc/get_data_bloc.dart';
+import 'package:code_test/pages/appbar_custom.dart';
 import 'package:code_test/utilities/constant.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -29,17 +30,27 @@ class _Screen1State extends State<Screen1> {
       width: 400,
       clipBehavior: Clip.hardEdge,
       decoration: BoxDecoration(
-          color: Colors.grey,
-          borderRadius: BorderRadius.circular(30),
-          border: Border.all(color: Colors.white)),
-      child: Scaffold(
-          appBar: AppBar(
-            leading: Image.asset(AppAssets.nike),
-            title: const Text(
-              'Our Products',
-              style: TextStyle(fontFamily: fontBoldApp, fontSize: 20),
-            ),
+        color: Colors.grey,
+        borderRadius: BorderRadius.circular(30),
+        border: Border.all(color: Colors.white),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.5),
+            spreadRadius: 5,
+            blurRadius: 7,
+            offset: Offset(0, 3), // changes position of shadow
           ),
+        ],
+      ),
+      child: Scaffold(
+          // appBar: AppBar(
+          //   leading: Image.asset(AppAssets.nike),
+          //   title: const Text(
+          //     'Our Products',
+          //     style: TextStyle(fontFamily: fontBoldApp, fontSize: 20),
+          //   ),
+          // ),
+          appBar: customAppBar('Our Products', ''),
           body: BlocBuilder<GetDataBloc, GetDataState>(
             builder: (context, state) {
               return ListView.builder(
